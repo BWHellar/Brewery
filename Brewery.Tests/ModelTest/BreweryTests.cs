@@ -11,7 +11,7 @@ namespace Brewery.Tests
     {
         public void Dispose()
         {
-            BreweryInfo.ClearAll();
+            Info.ClearAll();
         }
         public InfoTest()
         {
@@ -21,10 +21,10 @@ namespace Brewery.Tests
         // [TestMethod]
         // public void Save_SavesBreweryToDatabase_BreweryList()
         // {
-        //     BreweryInfo brewery = new BreweryInfo("smog", "LA", 12/03/19, "some Dude", "stout", "its good notes", "image.com");
+        //     Info brewery = new Info("smog", "LA", 12/03/19, "some Dude", "stout", "its good notes", "image.com");
         //     brewery.Save();
 
-        //     List<BreweryInfo> brewerys = BreweryInfo.GetAll();
+        //     List<Info> brewerys = BreweryInfo.GetAll();
 
         //     Assert.AreEqual(brewerys.Count, 1);
         // }
@@ -32,12 +32,12 @@ namespace Brewery.Tests
         [TestMethod]
         public void Save_AssingsIdToSavedBreweryInfo_Id()
         {
-            BreweryInfo brewery = new BreweryInfo("smog", "LA", 12/03/19, "some Dude", "stout", "its good notes", "image.com");
+            Info brewery = new Info("smog", "LA", 1990, "some Dude", "stout", "its good notes", "image.com");
             brewery.Save();
 
-            List<BreweryInfo> brewerys = BreweryInfo.GetAll();
+            List<Info> breweries = Info.GetAll();
 
-            Assert.AreEqual(brewerys.Count, 1);
+            Assert.AreEqual(breweries.Count, 1);
 
         }
     }
