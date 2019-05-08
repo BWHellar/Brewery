@@ -4,14 +4,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Brewery.Models;
 using MySql.Data.MySqlClient;
 
-namespace BreweryInfo.Tests
+namespace Brewery.Tests
 {
     [TestClass]
     public class InfoTest : IDisposable
     {
         public void Dispose()
         {
-            .ClearAll();
+            BreweryInfo.ClearAll();
         }
         public InfoTest()
         {
@@ -21,10 +21,21 @@ namespace BreweryInfo.Tests
         [TestMethod]
         public void Save_SavesBreweryToDatabase_BreweryList()
         {
-            Brewery brew = new Brewery("smog", "LA", "12/03/19", "some Dude", "stout", "its good notes", "image.com");
+            BreweryInfo brew = new BreweryInfo("smog", "LA", 12/03/19, "some Dude", "stout", "its good notes", "image.com");
             brew.Save();
-            List<Brewery> brews = Brewery.GetAll();
-            Assert.AreEual(brews.Count, 1);
+
+            List<BreweryInfo> brews = BreweryInfo.GetAll();
+
+            Assert.AreEqual(brews.Count, 1);
         }
+
+        // [TestMethod]
+        // public void Save_AssignsIdToSaveBreweryInfo_Id()
+        // {
+        //      BreweryInfo brew = new BreweryInfo("smog", "LA", date: 12 /03/19, "some Dude", "stout", "its good notes", "image.com");
+        //     brew.Save();
+            
+            
+        // }
     }
 }
