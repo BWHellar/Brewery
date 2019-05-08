@@ -18,16 +18,24 @@ namespace Brewery.Tests
             DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=brewery_test;";
         }
 
-        // [TestMethod]
-        // public void Save_SavesBreweryToDatabase_BreweryList()
-        // {
-        //     Info brewery = new Info("smog", "LA", 12/03/19, "some Dude", "stout", "its good notes", "image.com");
-        //     brewery.Save();
+        [TestMethod]
+        public void Equals_ReturnsTrueDescrption_Card()
+        {
+            Info brew1 = new Info("smog", "LA", 1990, "some Dude", "stout", "its good notes", "image.com");
+            Info brew2 = new Info("smog", "LA", 1990, "some Dude", "stout", "its good notes", "image.com");
 
-        //     List<Info> brewerys = BreweryInfo.GetAll();
+            Assert.AreEqual(brew1, brew2);
+        }
+        [TestMethod]
+        public void Save_SavesBreweryToDatabase_BreweryList()
+        {
+            Info brewery = new Info("smog", "LA", 1990, "some Dude", "stout", "its good notes", "image.com");
+            brewery.Save();
 
-        //     Assert.AreEqual(brewerys.Count, 1);
-        // }
+            List<Info> breweries = Info.GetAll();
+
+            Assert.AreEqual(breweries.Count, 1);
+        }
 
         [TestMethod]
         public void Save_AssingsIdToSavedBreweryInfo_Id()

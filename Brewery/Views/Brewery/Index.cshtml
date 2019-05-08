@@ -1,0 +1,36 @@
+@using Brewery.Models;
+
+<form action="/create" method="post">
+
+<label for="name">Name of Brewery:</label>
+<input id="name" name="name" method="post" type="text" required>
+
+<label for="location">Location of Brewery:</label>
+<input id="location" name="location" method="post" type="text" required>
+
+<label for="year">Year Founded:</label>
+<input id="year" name="year" method="post" type="number" required>
+
+<label for="founder">Founded By:</label>
+<input id="founder" name="founder" method="post" type="text" required>
+
+<label for="beer">Style known for:</label>
+<input id="beer" name="beer" method="post" type="text" required>
+
+<label for="notes">Notes:</label>
+<textarea rows="1" id="notes" name="name" method="post" type="text" required>
+
+<label for="logo">Logo:</label>
+<input id="logo" name="logo" method="post" type="text" required>
+
+<button type="submit">Submit</button>
+
+</form>
+
+@foreach (Info info in @Models)
+{
+    <li>@info.Logo</li>
+        <ul>
+            <li>@info.Name</li>
+        </ul>
+}
