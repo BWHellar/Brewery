@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
-namespace Brewery.Models
+namespace BreweryInfo.Models
 {
     // These are our strings and ints that we want to initiate as private.  The reason we do this is so that the core values cannot be altered and can only be accessed when needed.
     public class BreweryInfo
@@ -56,8 +56,8 @@ namespace Brewery.Models
         // Declare the SQL command as the command to open the connection.
         MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
         // These are the things we want to insert into the database.  THey should match the ordering stated above in order to call the right thing.
-        cmd.CommandText = @"INSERT INTO brewery (name, location, date, founder, beer, notes, logo) 
-        VALUES (@Location, @Date, @Founder, @Brewery, @Notes, @Logo);";
+        cmd.CommandText = @"INSERT INTO brewery_info (name, location, date, founder, beer, notes, logo) 
+        VALUES (@Name, @Location, @Date, @Founder, @Beer, @Notes, @Logo);";
         // Setting a new Parameter for each of the values we put into the current item of "this", which is the brewery we are writing about.
         MySqlParameter name = new MySqlParameter();
         name.ParameterName = "@Name";
@@ -107,15 +107,14 @@ namespace Brewery.Models
         }
     }
     
-    //
     public static List<BreweryInfo> GetAll()
     {
-        List<BreweryInfo> allBrewery = new List<BreweryInfo>{};
+        List<BreweryInfo> allBrewerys = new List<BreweryInfo>{};
 
         MySqlConnection conn = DB.Connection();
         conn.Open();
         MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-        cmd.CommandText = @"SELECT * FROM brewery;";
+        cmd.CommandText = @"SELECT * FROM brewery_info;";
         MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
 
         while(rdr.Read())
@@ -130,7 +129,7 @@ namespace Brewery.Models
             int bId = rdr.GetInt32(7);
 
             BreweryInfo brewery = new BreweryInfo(bName, bLocation, bDate, bFounder, bBeer, bNotes, bLogo, bId);
-            allBrewery.Add(brewery);
+            allBrewerys.Add(brewery);
         }
 
         conn.Close();
@@ -138,7 +137,7 @@ namespace Brewery.Models
         {
             conn.Dispose();
         }
-        return allBrewery;
+        return allBrewerys;
     }
 
     public override bool Equals(object obj)
@@ -159,7 +158,7 @@ namespace Brewery.Models
         MySqlConnection conn = DB.Connection();
         conn.Open();
         MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-        cmd.CommandText = @"DELETE FROM brewery;";
+        cmd.CommandText = @"DELETE FROM brewery_info;";
         cmd.ExecuteNonQuery();
 
         conn.Close();
