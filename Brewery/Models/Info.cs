@@ -33,7 +33,7 @@ namespace Brewery.Models
         private int _id;
         public int Id { get { return _id;} }
 
-        private string _region;
+        private string _regionId;
         public string Region{ get {return _region;} }
 
     // This compiles the variosu data that we need to put into the brewery.  We want to be able to call forth the entire brewery when we have it set from the database.
@@ -176,6 +176,15 @@ namespace Brewery.Models
         {
             conn.Dispose();
         }
+    }
+
+    public static Info Find(int id)
+    {
+        MySqlConnection conn = DB.Connection();
+        conn.Open();
+        var cmd = conn.CreateCommand() as MySqlCommand;
+        cmd.CommandText @"SELECT * FROM info WHERE id = (@searchId);";
+
     }
     }
 }

@@ -6,30 +6,31 @@ namespace Brewery.Models
 {
     public class Regions
     {
-        private string _region;
-        public string Region{ get { return _region; } }
+        private static List<Info> _instances = new List<Info> {};
+        private string _name;
+        private List<Info> _info;
     
-    public Regions (string region)
+    public static Region(string regionName)
     {
-        _region=region;
+        _name = regionName;
+        _instances.Add(this);
+        _brewery = new List<Info> {};
     }
-    public void SaveRegion()
+    public string GetName()
     {
-        MySqlConnection conn = DB.Connection();
-        conn.Open();
-
-        MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-        cmd.CommandText = @"INSERT INTO brewery_info (region) Values (@Region);";
-        MySqlParameter region = new MySqlParameter();
-        region.ParameterName = "@Region";
-        region.Value = this._region;
-        cmd.Parameters.Add(region);
-
-        conn.Close();
-        if(conn !=null)
-        {
-            conn.Dispose();
-        }
+        return _name;
+    }
+    public static List<Info> GetAll()
+    {
+        return _instances;
+    }
+    public static Region Find(string region)
+    {
+        return _instances[searchId-1];
+    }
+    public List<Info> GetInfo()
+    {
+        return _info;
     }
     }
 }
