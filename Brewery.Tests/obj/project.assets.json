@@ -13634,11 +13634,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Guest/Desktop/Brewery.Solution/Brewery.Tests/Brewery.Tests.csproj",
+      "projectUniqueName": "/Users/Guest/Desktop/Breweries.Solutions/Brewery.Tests/Brewery.Tests.csproj",
       "projectName": "Brewery.Tests",
-      "projectPath": "/Users/Guest/Desktop/Brewery.Solution/Brewery.Tests/Brewery.Tests.csproj",
+      "projectPath": "/Users/Guest/Desktop/Breweries.Solutions/Brewery.Tests/Brewery.Tests.csproj",
       "packagesPath": "/Users/Guest/.nuget/packages/",
-      "outputPath": "/Users/Guest/Desktop/Brewery.Solution/Brewery.Tests/obj/",
+      "outputPath": "/Users/Guest/Desktop/Breweries.Solutions/Brewery.Tests/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -13655,8 +13655,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "/Users/Guest/Desktop/Brewery.Solution/Brewery/Brewery.csproj": {
-              "projectPath": "/Users/Guest/Desktop/Brewery.Solution/Brewery/Brewery.csproj"
+            "/Users/Guest/Desktop/Breweries.Solutions/Brewery/Brewery.csproj": {
+              "projectPath": "/Users/Guest/Desktop/Breweries.Solutions/Brewery/Brewery.csproj"
             }
           }
         }

@@ -33,8 +33,11 @@ namespace Brewery.Models
         private int _id;
         public int Id { get { return _id;} }
 
+        private string _region;
+        public string Region{ get {return _region;} }
+
     // This compiles the variosu data that we need to put into the brewery.  We want to be able to call forth the entire brewery when we have it set from the database.
-    public Info(string name, string location, int year, string founder, string beer, string notes, string logo, int id = 0)
+    public Info(string name, string location, int year, string founder, string beer, string notes, string logo, int id = 0, string region = " ")
     {
         _name = name;
         _location = location;
@@ -44,6 +47,7 @@ namespace Brewery.Models
         _notes = notes;
         _logo = logo;
         _id = id;
+        _region = region;
     
     }
     //  This is our save function and it allows us to put the data that we have input into our database as the set brewery.
@@ -56,8 +60,8 @@ namespace Brewery.Models
         // Declare the SQL command as the command to open the connection.
         MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
         // These are the things we want to insert into the database.  THey should match the ordering stated above in order to call the right thing.
-        cmd.CommandText = @"INSERT INTO brewery_info (name, location, year, founder, beer, notes, logo) 
-        VALUES (@Name, @Location, @Year, @Founder, @Beer, @Notes, @Logo);";
+        cmd.CommandText = @"INSERT INTO brewery_info (name, location, year, founder, beer, notes, logo, region) 
+        VALUES (@Name, @Location, @Year, @Founder, @Beer, @Notes, @Logo, @Region);";
         // Setting a new Parameter for each of the values we put into the current item of "this", which is the brewery we are writing about.
         MySqlParameter name = new MySqlParameter();
         name.ParameterName = "@Name";
@@ -86,6 +90,10 @@ namespace Brewery.Models
         MySqlParameter logo = new MySqlParameter();
         logo.ParameterName = "@Logo";
         logo.Value = this._logo;
+
+        MySqlParameter region = new MySqlParameter();
+        region.ParameterName = "@Region";
+        region.Value = this._region;
         //  This will actually add the item to the brewery we are working on.
         cmd.Parameters.Add(name);
         cmd.Parameters.Add(location);
@@ -94,6 +102,7 @@ namespace Brewery.Models
         cmd.Parameters.Add(beer);
         cmd.Parameters.Add(notes);
         cmd.Parameters.Add(logo);
+        cmd.Parameters.Add(region);
         // NonQuery because we are not asking the server to return anything and only placing things within the database.
         cmd.ExecuteNonQuery();
         // Allows for an Id
@@ -127,8 +136,9 @@ namespace Brewery.Models
             string bNotes = rdr.GetString(5);
             string bLogo = rdr.GetString(6);
             int bId = rdr.GetInt32(7);
+            string bRegion = rdr.GetString(8);
 
-            Info brewery = new Info(bName, bLocation, bYear, bFounder, bBeer, bNotes, bLogo, bId);
+            Info brewery = new Info(bName, bLocation, bYear, bFounder, bBeer, bNotes, bLogo, bId, bRegion);
             allBrewerys.Add(brewery);
         }
 

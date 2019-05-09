@@ -12108,11 +12108,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Guest/Desktop/Brewery.Solution/Brewery/Brewery.csproj",
+      "projectUniqueName": "/Users/Guest/Desktop/Breweries.Solutions/Brewery/Brewery.csproj",
       "projectName": "Brewery",
-      "projectPath": "/Users/Guest/Desktop/Brewery.Solution/Brewery/Brewery.csproj",
+      "projectPath": "/Users/Guest/Desktop/Breweries.Solutions/Brewery/Brewery.csproj",
       "packagesPath": "/Users/Guest/.nuget/packages/",
-      "outputPath": "/Users/Guest/Desktop/Brewery.Solution/Brewery/obj/",
+      "outputPath": "/Users/Guest/Desktop/Breweries.Solutions/Brewery/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

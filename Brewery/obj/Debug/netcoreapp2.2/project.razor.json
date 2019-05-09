@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/Guest/Desktop/Brewery.Solution/Brewery/Brewery.csproj",
+  "FilePath": "/Users/Guest/Desktop/Breweries.Solutions/Brewery/Brewery.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -2761,6 +2761,11 @@
     {
       "FilePath": "Views/Brewery/Show.cshtml",
       "TargetPath": "Views/Brewery/Show.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Region/Show.cshtml",
+      "TargetPath": "Views/Region/Show.cshtml",
       "FileKind": "mvc"
     },
     {
